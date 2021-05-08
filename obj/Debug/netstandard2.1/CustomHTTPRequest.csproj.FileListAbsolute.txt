@@ -1,9 +1,0 @@
-C:\Development\C#Project\CustomHTTPRequest\bin\Debug\netstandard2.1\CustomHTTPRequest.deps.json
-C:\Development\C#Project\CustomHTTPRequest\bin\Debug\netstandard2.1\CustomHTTPRequest.dll
-C:\Development\C#Project\CustomHTTPRequest\bin\Debug\netstandard2.1\CustomHTTPRequest.pdb
-C:\Development\C#Project\CustomHTTPRequest\obj\Debug\netstandard2.1\CustomHTTPRequest.csprojAssemblyReference.cache
-C:\Development\C#Project\CustomHTTPRequest\obj\Debug\netstandard2.1\CustomHTTPRequest.AssemblyInfoInputs.cache
-C:\Development\C#Project\CustomHTTPRequest\obj\Debug\netstandard2.1\CustomHTTPRequest.AssemblyInfo.cs
-C:\Development\C#Project\CustomHTTPRequest\obj\Debug\netstandard2.1\CustomHTTPRequest.csproj.CoreCompileInputs.cache
-C:\Development\C#Project\CustomHTTPRequest\obj\Debug\netstandard2.1\CustomHTTPRequest.dll
-C:\Development\C#Project\CustomHTTPRequest\obj\Debug\netstandard2.1\CustomHTTPRequest.pdb

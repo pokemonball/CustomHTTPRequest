@@ -6,7 +6,8 @@
     <Version>1.0.0</Version>
     <Authors>htuser</Authors>
     <Company>No Company</Company>
-    <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
 </Project>

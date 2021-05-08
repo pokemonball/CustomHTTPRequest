@@ -164,10 +164,10 @@ namespace CustomHTTPRequestNS
         /// <param name="poststring">Post string variable</param>
         /// <param name="username">Username</param>
         /// <param name="password">Password</param>
-        /// <param name="cookiescontain">Cookies contains - .NET C# cookies value container</param>
+        /// <param name="SOAPActionText">SOAP Action string</param>
         /// <returns>CustomWebResponse</returns>
         public CustomWebResponse HTTPCustomRequestBasicSOAP(string url, string poststring,
-            string username, string password, string SOAPHeaderText)
+            string username, string password, string SOAPActionText)
         {
             HttpWebResponse Hresponse = null;
             Stream tstream = null;
@@ -196,7 +196,7 @@ namespace CustomHTTPRequestNS
                 Hrequest.Credentials = myCredentialCache;
                 Hrequest.PreAuthenticate = true;
 
-                Hrequest.Headers.Add("SOAPAction", @"""" + SOAPHeaderText + @"""");
+                Hrequest.Headers.Add("SOAPAction", @"""" + SOAPActionText + @"""");
                 Hrequest.ContentLength = Data.Length;
 
                 using (Stream stream = Hrequest.GetRequestStream())
@@ -275,7 +275,7 @@ namespace CustomHTTPRequestNS
                 //Hrequest.UserAgent = UserAgent;
                 Hrequest.ContentType = "application/json";
 
-                Hrequest.Headers.Add("Authorization", @"Bearer " + Token );
+                Hrequest.Headers.Add("Authorization", @"Bearer " + Token);
                 Hrequest.ContentLength = Data.Length;
 
                 using (Stream stream = Hrequest.GetRequestStream())
@@ -352,7 +352,7 @@ namespace CustomHTTPRequestNS
                 //Hrequest.UserAgent = UserAgent;
                 Hrequest.ContentType = "application/json";
 
-                Hrequest.Headers.Add("Authorization", @"Bearer " + Token );
+                Hrequest.Headers.Add("Authorization", @"Bearer " + Token);
 
                 Hrequest.AllowAutoRedirect = true;
                 Hresponse = (HttpWebResponse)Hrequest.GetResponse();
@@ -897,11 +897,13 @@ namespace CustomHTTPRequestNS
         }
 
         /// <summary>
-        /// Custom HTTP POST with ONLY attachment - content type is multipart/form-data; boundary=
+        /// Custom HTTP POST request for XCP with filepath as an input for attachement - content type is multipart/form-data; boundary=
         /// </summary>
         /// <param name="url">Web URL</param>
-        /// <param name="fileforminput">File input form name *please refer to HTML for dummy*</param>
+        /// <param name="identifier">Exclusion Identifier string from create context to push something to machine</param>
         /// <param name="filepath">File path for attachment</param>
+        /// <param name="username">Username</param>
+        /// <param name="password">Password</param>
         /// <returns></returns>
         public CustomWebResponse HTTPXCPCustomRequest(string url, string identifier, string filepath, string username, string password)
         {
@@ -1040,8 +1042,10 @@ Content-Transfer-Encoding: binary
         /// </summary>
         /// <param name="url">Web URL</param>
         /// <param name="foldername">Custom service name</param>
-        /// <param name="identifier">Exclusion identifier</param>
+        /// <param name="identifier">Exclusion Identifier string from create context to push something to machine</param>
         /// <param name="filepath">File path for attachment</param>
+        /// <param name="username">Username</param>
+        /// <param name="password">Password</param>
         /// <returns></returns>
         public CustomWebResponse HTTPCSVCustomRequest(string url, string foldername, string identifier, string filepath, string username, string password)
         {
@@ -1254,6 +1258,9 @@ Content-Transfer-Encoding: binary
         /// </summary>
         public MemoryStream ResponseStream = new MemoryStream();
 
+        /// <summary>
+        /// Initialise CustomWebResponse
+        /// </summary>
         public CustomWebResponse()
         {
             this.TimeTaken = "{notimetakenlog}";
@@ -1337,6 +1344,7 @@ Content-Transfer-Encoding: binary
         /// <param name="StatusCode">HTTP response status code</param>
         /// <param name="TimeTaken">Time taken when sending the HTTP request and getting HTTP response </param>
         /// <param name="url">HTTP request URL</param>
+        /// <param name="contenttype">Content type</param>
         public CustomWebResponse(string Response, CookieContainer CookContain, string Status, int StatusCode,
             string TimeTaken, string url, string contenttype)
         {
@@ -1358,6 +1366,7 @@ Content-Transfer-Encoding: binary
         /// <param name="StatusCode">HTTP response status code</param>
         /// <param name="TimeTaken">Time taken when sending the HTTP request and getting HTTP response </param>
         /// <param name="url">HTTP request URL</param>
+        /// <param name="contenttype">Content type</param>
         public CustomWebResponse(Stream PResponseStream, CookieContainer CookContain, string Status,
             int StatusCode, string TimeTaken, string url, string contenttype)
         {
@@ -1377,9 +1386,20 @@ Content-Transfer-Encoding: binary
     /// </summary>
     public class PostMessage
     {
+        /// <summary>
+        /// Post message key 
+        /// </summary>
         public string Key { get; set; }
+        /// <summary>
+        /// Post message value
+        /// </summary>        
         public string Value { get; set; }
 
+        /// <summary>
+        /// Initialise object with key and value POST message
+        /// </summary>
+        /// <param name="key">Post message key </param>
+        /// <param name="value">Post message value</param>
         public PostMessage(string key, string value)
         {
             this.Key = key;
