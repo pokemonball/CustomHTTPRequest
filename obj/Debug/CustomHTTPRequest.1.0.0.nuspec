@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CustomHTTPRequest</id>
+    <version>1.0.0</version>
+    <authors>htuser</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT OR Apache-2.0</license>
+    <licenseUrl>https://licenses.nuget.org/MIT%20OR%20Apache-2.0</licenseUrl>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETStandard2.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Development\C#Project\CustomHTTPRequest\bin\Debug\netstandard2.1\CustomHTTPRequestNS.dll" target="lib\netstandard2.1\CustomHTTPRequestNS.dll" />
+  </files>
+</package>

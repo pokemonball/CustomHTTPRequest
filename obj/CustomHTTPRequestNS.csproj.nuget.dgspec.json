@@ -1,0 +1,58 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Development\\C#Project\\CustomHTTPRequest\\CustomHTTPRequestNS.csproj": {}
+  },
+  "projects": {
+    "C:\\Development\\C#Project\\CustomHTTPRequest\\CustomHTTPRequestNS.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Development\\C#Project\\CustomHTTPRequest\\CustomHTTPRequestNS.csproj",
+        "projectName": "CustomHTTPRequest",
+        "projectPath": "C:\\Development\\C#Project\\CustomHTTPRequest\\CustomHTTPRequestNS.csproj",
+        "packagesPath": "C:\\Users\\htuser\\.nuget\\packages\\",
+        "outputPath": "C:\\Development\\C#Project\\CustomHTTPRequest\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\htuser\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.407\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
