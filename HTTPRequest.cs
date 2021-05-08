@@ -374,6 +374,7 @@ namespace CustomHTTPRequestNS
 
                 CustWR.Method = Hrequest.Method;
                 CustWR.UrlRequest = url;
+                
                 return CustWR;
             }
             catch (WebException webex)
@@ -1252,6 +1253,11 @@ Content-Transfer-Encoding: binary
         /// Time taken when sending the HTTP request and getting HTTP response 
         /// </summary>
         public string TimeTaken { get; set; }
+
+        /// <summary>
+        /// Encoding type
+        /// </summary>
+        public string AcceptEncoding { get; set; }
 
         /// <summary>
         /// Memory stream to handle the stream response 
