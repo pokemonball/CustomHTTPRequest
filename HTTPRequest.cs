@@ -12,7 +12,7 @@ namespace CustomHTTPRequestNS
     /// This is a custom made HTTPRequest in this class you can specify the Timeout and Character encoding 
     /// In addition you also have the liberty to change the return stream by set <br />
     /// CustomHTTPRequest.ReturnStream = true <br />
-    /// Copyright by Hendri Tjiptowibowo 2014
+    /// Copyright by H Tjipto 2014
     /// </summary> 
     public class CustomHTTPRequest
     {
@@ -1205,7 +1205,7 @@ Content-Transfer-Encoding: binary
     /// <summary>
     /// This is custom made web response you will have the web status time taken to make the request 
     /// plus cookies container which is usefull for session web application parsing <br />
-    /// Copyright by Hendri Tjiptowibowo 2014
+    /// Copyright by H Tjipto 2014
     /// </summary>
     public class CustomWebResponse
     {
