@@ -702,6 +702,84 @@ namespace CustomHTTPRequestNS
 
         }
 
+                /// <summary>
+        /// Custom HTTP POST request with cookie container to simulate the session on web client
+        /// </summary>
+        /// <param name="url">Web URL</param>
+        /// <param name="poststring">Post variable request</param>
+        /// <param name="cookiescontain">Cookies contains - .NET C# cookies value container as reference</param>
+        /// <returns>CustomWebResponse</returns>
+        public CustomWebResponse HTTPCustomRequest(string url, string poststring, ref CookieContainer cookiescontain)
+        {
+            HttpWebResponse Hresponse = null;
+            Stream tstream = null;
+            StreamReader reader = null;
+            Stopwatch StopWatch = new Stopwatch();
+            HttpWebRequest Hrequest = (HttpWebRequest)WebRequest.Create(url);
+
+            try
+            {
+                StopWatch.Start();
+                byte[] Data = CharEncode.GetBytes(poststring);
+
+                CustomWebResponse CustWR;
+
+                Hrequest.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
+
+                Hrequest.Timeout = this.Timeout;
+                Hrequest.Method = "POST";
+                Hrequest.UserAgent = UserAgent;
+                Hrequest.ContentType = "application/x-www-form-urlencoded";
+                Hrequest.ContentLength = Data.Length;
+                Hrequest.CookieContainer = cookiescontain;
+
+                using (Stream stream = Hrequest.GetRequestStream())
+                {
+                    stream.Write(Data, 0, Data.Length);
+                    stream.Close();
+                }
+
+                Hrequest.AllowAutoRedirect = true;
+                Hresponse = (HttpWebResponse)Hrequest.GetResponse();
+
+                tstream = Hresponse.GetResponseStream();
+                reader = new StreamReader(tstream, CharEncode);
+
+                StopWatch.Stop();
+                if (ReturnStream)
+                {
+                    CustWR = new CustomWebResponse(tstream, cookiescontain, Hresponse.StatusDescription, (int)Hresponse.StatusCode,
+                        StopWatch.Elapsed.ToString(@"hh\:mm\:ss\:ff"), Hrequest.Method + " " + url);
+                }
+                else
+                {
+                    CustWR = new CustomWebResponse(reader.ReadToEnd(), cookiescontain, Hresponse.StatusDescription, (int)Hresponse.StatusCode,
+                        StopWatch.Elapsed.ToString(@"hh\:mm\:ss\:ff"), Hrequest.Method + " " + url);
+                }
+
+                CustWR.Method = Hrequest.Method;
+                CustWR.UrlRequest = url;
+                return CustWR;
+            }
+            catch (WebException webex)
+            {
+                return WebExceptHandle(webex);
+            }
+            catch (Exception ex)
+            {
+                CustomWebResponse CustWR = new CustomWebResponse(ex.Message, null, "Custom error this error thrown by other exception on the function", 1000);
+                CustWR.Method = Hrequest.Method;
+                CustWR.UrlRequest = url;
+                return CustWR;
+            }
+            finally
+            {
+                if (tstream != null) tstream.Close();
+                if (reader != null) reader.Close();
+                if (Hresponse != null) Hresponse.Close();
+            }
+        }
+
         /// <summary>
         /// Custom HTTP GET request  with cookie container to simulate the session on web client
         /// </summary>
