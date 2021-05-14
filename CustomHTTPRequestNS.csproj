@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>CustomHTTPRequest</PackageId>
@@ -8,6 +7,9 @@
     <Company>No Company</Company>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RepositoryUrl>https://github.com/pix3lize/CustomHTTPRequest</RepositoryUrl>
   </PropertyGroup>
-
+  <ItemGroup>
+    <PackageReference Include="MinVer" Version="2.5.0" PrivateAssets="All"/>
+  </ItemGroup>
 </Project>
