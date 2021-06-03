@@ -21,7 +21,6 @@ Console.WriteLine(CResponse.Method + "  " +
 	
 //Time taken : 00:00:00:05
 Console.WriteLine("Time taken : " +CResponse.TimeTaken); 
-```
 
 //Result:
 //GET  https://www.google.com 200 OK
