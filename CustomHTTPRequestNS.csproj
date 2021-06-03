@@ -9,6 +9,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <RepositoryUrl>https://github.com/pix3lize/CustomHTTPRequest</RepositoryUrl>
     <MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MinVer" Version="2.5.0" PrivateAssets="All"/>
