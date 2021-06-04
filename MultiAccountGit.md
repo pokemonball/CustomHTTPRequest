@@ -41,3 +41,11 @@ Re-add the remote information
 ```sh
 git remote add origin https://pokemonball@github.com/pokemonball/CustomHTTPRequest.git
 ```
+#### Removing the account in mac
+```sh
+ $ git credential-osxkeychain erase ⏎
+ host=github.com  ⏎
+ protocol=https   ⏎
+ ⏎
+ ⏎   
+```
